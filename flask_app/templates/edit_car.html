@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Car</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div id="container">
+        <div class="box">
+            <div class="boxContent">
+                <form action="/editcar" , method="POST">
+                    <h1>Edit {{user_car.model}}</h1>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <p style="color:red">{{message}}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <label for="price">Price:</label>
+                    <input type="number" class="form-control" id="price" name="price" value="{{user_car.price}}">
+                    <input type="hidden" name="car_id" value="{{user_car.id}}">
+
+                    <label for="model">Model:</label>
+                    <input type="text" class="form-control" id="model" name="model" value="{{user_car.model}}">
+
+                    <label for="make">Make:</label>
+                    <input type="text" class="form-control" id="make" name="make" value="{{user_car.make}}">
+
+                    <label for="year">Year:</label>
+                    <input type="number" class="form-control" id="year" name="year" value="{{user_car.year}}">
+
+                    <label for="description">Description:</label>
+                    <input type="text" class="form-control" id="description" name="description" value="{{user_car.description}}"><br>
+
+                    <input type="submit" value="Update Car" class="btn btn-primary">
+                </form>
+                <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+                <a href="/logout" class="btn btn-primary">Logout</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div id="container1">
+        <div id="box1">
+            <h1>Welcome to Car Dealz, {{user.first_name}}!</h1>
+            <h3>Cars for Sale</h3>
+            <a href="/logout" class="btn btn-primary">Logout</a>
+            <a href="/addcar" class="btn btn-primary">Add a Car</a>
+            <div id="flexTable">
+                <table width="800" border="1">
+                    <tr>
+                        <th>Model</th>
+                        <th>Year</th>
+                        <th>Seller</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for uc in users_cars %}
+                    <tr>
+                        <td>{{uc.car.model}}</td>
+                        <td>{{uc.car.year}}</td>
+                        <td>{{uc.first_name}} {{uc.last_name}}</td>
+                        <td>
+                            {% if uc.id != session["user_id"] %}
+                                <p><a href="/showcar/{{uc.car.id}}">View</a>
+                            {% endif %}
+                            {% if uc.id == session["user_id"] %}
+                                <a href="/edit/{{uc.car.id}}">Edit</a> | <a href="/delete/{{uc.car.id}}"> Delete</a></p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

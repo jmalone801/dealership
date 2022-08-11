@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="card-title"></h1><br>
+    <div class="card text-left" style="width: 800px;">
+        <div class="card-body">
+            <label for=""><b>Price:</b></label>
+            <p>${{user_car.car.price}}</p>
+            <label for=""><b>Model:</b></label>
+            <p>{{user_car.car.model}}</p>
+            <label for=""><b>Make:</b></label>
+            <p>{{user_car.car.make}}</p>
+            <label for=""><b>Year:</b></label>
+            <p>{{user_car.car.year}}</p>
+            <label for=""><b>Description:</b></label>
+            <p>{{user_car.car.description}}</p><br>
+            <h6>Seller: {{user_car.first_name}} {{user_car.last_name}}</h6>
+        </div>
+    </div>
+        <a href="/delete/{{user_car.car.id}}" class="btn btn-primary">Purchase</a>
+    <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+    <a href="/logout" class="btn btn-primary">Logout</a>
+</body>
+</html>
