@@ -7,7 +7,7 @@ bcrypt = Bcrypt(app)
 
 @app.route("/")
 def index():
-    return render_template("login.html")
+    return render_template("register.html")
 
 
 @app.route("/validate_reg", methods=["POST"])
@@ -22,7 +22,7 @@ def register():
         }
         user_id = User.register_user(data)
         session["user_id"] = user_id
-        flash("User created!")
+        flash("User Created!")
         return redirect("/")
     else:
         return redirect("/")
@@ -50,7 +50,7 @@ def login():
 @app.route("/logout")
 def logout():
     session.clear()
-    flash("Logged out")
+    flash("You Have Logged Out")
     return redirect("/")
 
 

@@ -44,15 +44,15 @@ class User:
 
         is_valid = True
         if len(user1["first_name"]) < 3:
-            flash ("Please enter first name")
+            flash ("Must Enter First Name")
             is_valid = False
 
         if len(user1["last_name"]) < 3:
-            flash ("Please enter last name")
+            flash ("Must Enter Last Name")
             is_valid = False
 
         if not email_regex.match(user1["email"]): 
-            flash("Invalid email address")
+            flash("Invalid Email Address")
             is_valid = False
 
         else:
@@ -62,15 +62,15 @@ class User:
                 }
             result = connectToMySQL("dealership_project").query_db(query, data)
             if len(result) > 0:
-                flash("Email is already taken")
+                flash("Email Already Taken")
                 is_valid = False
 
         if len(user1["password"]) < 8:
-            flash ("Password must incluse atleast 8 characters")
+            flash ("Password Must Include At Least 8 Characters")
             is_valid = False
 
         if user1['confirm_password'] != user1['password']:
-            flash("Passwords must match")
+            flash("Passwords Must Match")
             is_valid = False
 
         return is_valid

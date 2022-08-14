@@ -21,12 +21,15 @@ def dashboard():
 
 @app.route("/addcar")
 def newcar():
+    if "user_id" not in session:
+        flash("Please Log In")
+        return redirect("/")
     return render_template("add_car.html")
 
 @app.route("/insertcar", methods=["POST"])
 def insertcar():
     if "user_id" not in session:
-        flash("Please log in")
+        flash("Please Log In")
         return redirect("/")
 
     if Car.validate_car(request.form):
@@ -47,7 +50,7 @@ def insertcar():
 @app.route("/edit/<int:id>")
 def edit_car(id):
     if "user_id" not in session:
-        flash("Log in please")
+        flash("Please Log In")
         return redirect("/")
     data = {
         "car_id":id
@@ -58,7 +61,7 @@ def edit_car(id):
 @app.route("/editcar",methods=["POST"])
 def update_car():
     if "user_id" not in session:
-        flash("Log in please")
+        flash("Please Log In")
         return redirect("/")
 
     if Car.validate_update(request.form):
@@ -84,6 +87,9 @@ def update_car():
 
 @app.route("/showcar/<int:id>")
 def showcar(id):
+    if "user_id" not in session:
+        flash("Please Log In")
+        return redirect("/")
     data = {
         "car_id":id
     }
@@ -96,7 +102,7 @@ def showcar(id):
 @app.route("/delete/<int:id>")
 def delete_car(id):
     if "user_id" not in session:
-        flash("Log in please")
+        flash("Please Log In")
         return redirect("/")
     data = {
         "id":id
