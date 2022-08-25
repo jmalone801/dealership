@@ -24,7 +24,7 @@ def newcar():
     if "user_id" not in session:
         flash("Please Log In")
         return redirect("/")
-    return render_template("add_car.html")
+    return render_template("add-car.html")
 
 @app.route("/insertcar", methods=["POST"])
 def insertcar():
@@ -55,7 +55,7 @@ def edit_car(id):
     data = {
         "car_id":id
     }
-    return render_template("edit_car.html",user_car=Car.edit_car(data))
+    return render_template("edit-car.html",user_car=Car.edit_car(data))
 
 
 @app.route("/editcar",methods=["POST"])

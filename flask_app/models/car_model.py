@@ -115,7 +115,7 @@ class Car:
     @staticmethod
     def validate_update(car):
         is_valid = True
-        if len(car["price"]) < 1:
+        if len(car["price"]) < 1 or len(car["make"]) > 20:
             flash("Price must be greater than 0")
             is_valid = False
         if len(car["model"]) < 1:
