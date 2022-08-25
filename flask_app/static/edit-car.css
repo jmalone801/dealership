@@ -12,7 +12,6 @@
     min-height: 100vh;
 }
 
-
 /* Header */
 #header {
     display:flex;
@@ -30,44 +29,85 @@
     background-color: #8ba59f !important;
 }
 
+#title-home-button {
+    text-decoration: none;
+}
+
 .abereto-font {
     color: rgb(51, 51, 51);
     font-family: 'Aboreto', cursive;
     margin-left: 20px;
 }
 
-/* Main container */
+/* Main Container */
 #main-container {
     display: flex;
     justify-content: center;
 }
 
-#h3-title {
-    margin-top: 40px;
+.box {
+    width: 400px;
+    background-color: #b1c5e0cf;;
+    margin-top: 60px;
+    margin-bottom: 110px;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.boxContent {
+    margin: 20px;
+}
+
+h3 {
     font-size: 32px;
     font-weight: 600;
     color: rgba(62, 62, 62, 0.933);
 }
 
-#table-content {
-    margin-top: 20px;
-    background-color: #b1c5e0cf;
+#buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     text-align: center;
+    margin-top: 20px;
 }
 
-#addcar-button {
-    margin-top: 20px;
-    margin-bottom: 20px;
+#home-button {
+    color: #5a5a5ab8;
+    background-color: transparent;
+    font-size: larger;
+    text-decoration: none;
+}
+
+#home-button:hover {
+    color: #8ba59fda;
+    text-decoration: underline;
+}
+
+#submit-button {
     padding: 8px;
     width: 110px;
-    border: none;
     background-color: #8ba59f !important;
-    margin-bottom: 160px;
     border: 2px solid black;
 }
 
-th, td {
-    border: 2px solid black;
+.field {
+    height: 50px;
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+#description {
+    height: 120px;
+}
+
+#number-flex {
+    display: flex;
+    gap: 10px;
+    text-align: center;
 }
 
 /* Footer */
@@ -76,7 +116,7 @@ th, td {
     height: 90px;
     position: absolute;
     left: 50%;
-    bottom: -45px;
+    bottom: -45;
     transform: translate(-50%, -50%);
     margin: 0 auto;
     background-color: #e8e8e84c;
@@ -93,4 +133,3 @@ th, td {
 .linkedin-github {
     opacity: 0.6;
 }
-
