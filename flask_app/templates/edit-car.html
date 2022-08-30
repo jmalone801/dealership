@@ -32,7 +32,8 @@
             <div class="box">
                 <div class="boxContent">
                     <form id="label-form" action="/editcar" , method="POST">
-                        <h3>Edit {{user_car.make}}</h3>
+                        <h3><b>Make changes to:</b></h3>
+                        <h3>{{user_car.make}} {{user_car.model}}</h3>
                         {% with messages = get_flashed_messages() %}
                         {% if messages %}
                         {% for message in messages %}
@@ -40,23 +41,17 @@
                         {% endfor %}
                         {% endif %}
                         {% endwith %}
-                        <!-- <label for="make">Make:</label> -->
                         <input placeholder="Make" type="text" class="field" id="make" name="make"
                             value="{{user_car.make}}">
-                        <!-- <label for="model">Model:</label> -->
                         <input placeholder="Model" type="text" class="field" id="model" name="model"
                             value="{{user_car.model}}">
-
                         <div id="number-flex">
-                            <!-- <label for="year">Year:</label> -->
                             <input placeholder="Year" type="number" class="field" id="year" name="year"
                                 value="{{user_car.year}}">
-                            <!-- <label for="price">Price:</label> -->
                             <input placeholder="Price" type="number" class="field" id="price" name="price"
                                 value="{{user_car.price}}">
                             <input type="hidden" name="car_id" value="{{user_car.id}}">
                         </div>
-                        <!-- <label for="description">Description:</label> -->
                         <textarea type="text" class="field" id="description" name="description"
                             value="{{user_car.description}}">{{user_car.description}}</textarea><br>
                         <div id="buttons">

@@ -88,25 +88,23 @@ class Car:
         return connectToMySQL("dealership_project").query_db(query,data)
 
 
-
-
     @staticmethod
     def validate_car(car):
         is_valid = True
-        if len(car["make"]) < 1:
-            flash("Make is required")
+        if len(car["make"]) < 1 or len(car["make"]) > 20:
+            flash("Make must contain 2 to 20 characters")
             is_valid = False
-        if len(car["model"]) < 1:
-            flash("Model is required")
+        if len(car["model"]) < 1 or len(car["model"]) > 20:
+            flash("Model must contain 2 to 20 characters")
             is_valid = False
-        if len(car["year"]) < 1:
+        if len(car["year"]) < 1 or len(car["year"]) > 4:
             flash("Please enter valid year")
             is_valid = False
         if len(car["price"]) < 1:
-            flash("Price must be greater than 0")
+            flash("Price must be greater than 1")
             is_valid = False
-        if len(car["description"]) < 1:
-            flash("Description is required")
+        if len(car["description"]) < 1 or len(car["description"]) > 255:
+            flash("Description must contain 2 to 255 characters")
             is_valid = False
         
         return is_valid
@@ -115,20 +113,20 @@ class Car:
     @staticmethod
     def validate_update(car):
         is_valid = True
-        if len(car["price"]) < 1 or len(car["make"]) > 20:
-            flash("Price must be greater than 0")
+        if len(car["make"]) < 1 or len(car["make"]) > 20:
+            flash("Make must contain 2 to 20 characters")
             is_valid = False
-        if len(car["model"]) < 1:
-            flash("Model is required")
+        if len(car["model"]) < 1 or len(car["model"]) > 20:
+            flash("Model must contain 2 to 20 characters")
             is_valid = False
-        if len(car["make"]) < 1:
-            flash("Make is required")
-            is_valid = False
-        if len(car["year"]) < 1:
+        if len(car["year"]) < 1 or len(car["year"]) > 4:
             flash("Please enter valid year")
             is_valid = False
-        if len(car["description"]) < 1:
-            flash("Description is required")
+        if len(car["price"]) < 1:
+            flash("Price must be greater than 1")
+            is_valid = False
+        if len(car["description"]) < 1 or len(car["description"]) > 255:
+            flash("Description must contain 2 to 255 characters")
             is_valid = False
         
         return is_valid

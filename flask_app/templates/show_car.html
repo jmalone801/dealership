@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car</title>
+    <title>Show Car</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='show-car.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -31,19 +31,21 @@
         <div id="main-container">
             <div class="box">
                 <div class="boxContent">
-                    <h3>Add New Car</h3>
+                    <h3><b>Now Viewing:</b></h3>
+                    <h3>{{user_car.car.make}} {{user_car.car.model}}</h3>
                     <div id="inner-box">
-                        <label for=""><b>Make:</b></label>
+                        <label><b>Make:</b></label>
                         <p>{{user_car.car.make}}</p>
-                        <label for=""><b>Model:</b></label>
+                        <label><b>Model:</b></label>
                         <p>{{user_car.car.model}}</p>
-                        <label for=""><b>Price:</b></label>
+                        <label><b>Price:</b></label>
                         <p>${{user_car.car.price}}</p>
-                        <label for=""><b>Year:</b></label>
+                        <label><b>Year:</b></label>
                         <p>{{user_car.car.year}}</p>
-                        <label for=""><b>Description:</b></label>
+                        <label><b>Description:</b></label>
                         <p>{{user_car.car.description}}</p>
-                        <h6><b>Seller: </b>{{user_car.first_name}} {{user_car.last_name}}</h6>
+                        <label><b>Seller:</b></label>
+                        <p>{{user_car.first_name}} {{user_car.last_name}}</p>
                     </div>
                     <div id="buttons">
                         <a id="home-button" href="/dashboard">Home</a>

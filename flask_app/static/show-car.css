@@ -57,11 +57,11 @@
 #inner-box {
     background-color: rgba(255, 255, 255, 0.741);
     padding: 20px;
+    word-wrap: break-word;
 }
 
 .boxContent {
     margin: 20px;
-
 }
 
 h3 {
